@@ -1,0 +1,26 @@
+.field{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: black;
+    margin: auto;    
+}
+
+.cell{
+    width: 120px;
+    height: 120px;
+    background-color: green; 
+    margin: 2px;      
+}
+
+.score{
+    display: flex;
+    justify-content: center;
+}
+
+.ball{
+    margin: 20px;
+}
+
+.ceil{
+    cursor: url('../img/cursor.png'), auto;
+}

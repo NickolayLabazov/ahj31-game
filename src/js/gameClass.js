@@ -14,14 +14,14 @@ export default class Game {
     this.ceil = 0;
   }
 
-  score(){
-    let scoreDiv = document.createElement('div');
+  score() {
+    const scoreDiv = document.createElement('div');
     scoreDiv.classList.add('score');
     document.body.appendChild(scoreDiv);
-    let ballName = document.createElement('div');
-    let ball = document.createElement('div');
-    let missName = document.createElement('div');
-    let miss = document.createElement('div');
+    const ballName = document.createElement('div');
+    const ball = document.createElement('div');
+    const missName = document.createElement('div');
+    const miss = document.createElement('div');
     ballName.classList.add('ball');
     ball.classList.add('ball');
     missName.classList.add('ball');
@@ -29,15 +29,15 @@ export default class Game {
     ballName.innerHTML = 'Очки:';
     ball.innerHTML = this.ball;
     missName.innerHTML = 'Пропущено:';
-    miss.innerHTML = this.miss;    
+    miss.innerHTML = this.miss;
     scoreDiv.appendChild(ballName);
     scoreDiv.appendChild(ball);
     scoreDiv.appendChild(missName);
     scoreDiv.appendChild(miss);
   }
 
-  newScore(){    
-    let child = document.querySelector('.score')
+  newScore() {
+    const child = document.querySelector('.score');
     document.body.removeChild(child);
     this.score();
   }
@@ -51,7 +51,7 @@ export default class Game {
     return position;
   }
 
-  fieldCreate(board) {    
+  fieldCreate(board) {
     this.board = board;
     this.field = document.createElement('div');
     this.field.classList.add('field');
@@ -70,8 +70,8 @@ export default class Game {
       this.ball += 1;
       this.newScore();
       clearInterval(this.interval);
-      this.imgCreate();      
-    }   
+      this.imgCreate();
+    };
   }
 
   imgCreate() {
@@ -80,17 +80,17 @@ export default class Game {
       this.addImg();
       this.miss += 1;
       this.newScore();
-      if(this.miss === 5){
+      if (this.miss === 5) {
         clearInterval(this.interval);
         alert('Game over');
-      }      
+      }
     }, this.delay);
   }
 
   addImg() {
     if (this.position > -1) {
       this.field.childNodes[this.position].removeEventListener('click', this.listFunc);
-      this.ceil.style.cursor = "auto";
+      this.ceil.style.cursor = 'auto';
     }
     this.position = this.rand();
     this.ceil = this.field.childNodes[this.position];
